@@ -1,5 +1,4 @@
 <template>
-  <!-- <div>todo list</div> -->
   <TodoList />
 </template>
 
