@@ -36,6 +36,7 @@
     コメント <input type="text" ref="comment" />
     <button type="submit">追加</button>
   </form>
+  <button v-on:click="doRemoveAll()">全てのタスクを削除</button>
 </template>
 
 <script lang="ts">
@@ -90,8 +91,6 @@ type TodoItem = {
   methods: {
     doAdd(event: any, value: string) {
       const comment = this.$refs.comment;
-
-      console.log(todoStorage.uid, "uid");
       if (!comment.value.length) {
         return;
       }
@@ -102,7 +101,6 @@ type TodoItem = {
         state: 0,
       });
       comment.value = "";
-      console.log(this.todos, "todos");
     },
     doChangeState(item: TodoItem) {
       item.state = item.state ? 0 : 1;
@@ -110,7 +108,9 @@ type TodoItem = {
     doRemove(item: TodoItem) {
       const index = this.todos.indexOf(item);
       this.todos.splice(index, 1);
-      console.log("delete");
+    },
+    doRemoveAll() {
+      this.todos = [];
     },
   },
   watch: {
@@ -155,7 +155,7 @@ table {
   border-collapse: collapse;
 }
 thead th {
-  border-bottom: 2px solid #0099e4; /*#d31c4a */
+  border-bottom: 2px solid #0099e4; /*#d31c4a  */
   color: #0099e4;
 }
 th,
