@@ -1,5 +1,7 @@
 # vue-practice
-Vueで何か作る
+Vueで簡単なTodoアプリをチュートリアルを参考にして作りました。
+参考サイト
+https://cr-vue.mio3io.com/tutorials/todo.html
 
 ## Project setup
 ```
